@@ -1,0 +1,6 @@
+// Toast variant mixin
+@mixin toast-variant($color: var(--dark-color)) {
+    --primary-alfa: 95;
+    background: $color;
+    border-color: $color;
+}

@@ -1,0 +1,4 @@
+node_modules
+public/build
+spectre
+package-lock.json
