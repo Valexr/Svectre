@@ -1,4 +1,7 @@
 node_modules
 public/build
 spectre
-package-lock.json
+
+Icon?
+.DS_Store
+*-lock.*
