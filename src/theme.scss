@@ -1,38 +1,48 @@
-:root {
-    --hue: 241;
-    --sat: 63;
-    --light: 59;
-    --alfa: 100;
+// Variables and mixins
+@import "scss/variables";
+@import "scss/mixins";
 
-    --h: var(--hue);
-    --s: var(--sat);
-    --l: var(--light);
-    --a: var(--alfa);
+// Reset and dependencies
+@import "scss/normalize";
+@import "scss/base";
 
-    --dark-color: hsla(var(--h), 15%, 10%, calc(var(--a) * 1%));
-    --light-color: hsla(var(--h), 5%, 90%, calc(var(--a) * 1%));
-    --primary-color: hsla(var(--h), calc(var(--s) * 1%), calc(var(--l) * 1%), calc(var(--a) * 1%));
-    --primary-darken: hsla(var(--h), calc(var(--s) * 1%), calc(var(--l) * 1% - 3%), calc(var(--a) * 1%));
-    --primary-lighten: hsla(var(--h), calc(var(--s) * 1%), calc(var(--l) * 1% + 3%), calc(var(--a) * 1%));
-    --secondary-color: hsla(var(--h), calc(var(--s) * 1%), calc(var(--l) * 1%), calc(var(--a) * 1% - 90%));
-    --secondary-darken: hsla(var(--h), calc(var(--s) * 1%), calc(var(--l) * 1% - 3%), calc(var(--a) * 1% - 90%));
-    --secondary-lighten: hsla(var(--h), calc(var(--s) * 1%), calc(var(--l) * 1% + 3%), calc(var(--a) * 1% - 90%));
-}
+// Elements
+@import "scss/typography";
+// @import "scss/asian";
+// @import "scss/tables";
+// @import "scss/buttons";
+// @import "scss/forms";
+// @import "scss/labels";
+// @import "scss/codes";
+@import "scss/media";
 
-body {
-    transition: background 250ms, color 250ms;
-    background: var(--dark-color);
-    color: var(--light-color);
-}
-@media (prefers-color-scheme: dark) {
-    /* :root {
-        --dark-color: hsla(var(--h), 5%, 10%, calc(var(--a) * 1%));
-        --light-color: hsla(var(--h), 5%, 90%, calc(var(--a) * 1%));
-    } */
-}
-@media (prefers-color-scheme: light) {
-    :root {
-        --dark-color: hsla(var(--h), 5%, 90%, calc(var(--a) * 1%));
-        --light-color: hsla(var(--h), 15%, 10%, calc(var(--a) * 1%));
-    }
-}
+// Layout
+@import "scss/layout";
+@import "scss/hero";
+@import "scss/navbar";
+
+// Components
+// @import "scss/accordions";
+// @import "scss/avatars";
+@import "scss/badges";
+// @import "scss/breadcrumbs";
+// @import "scss/bars";
+// @import "scss/cards";
+// @import "scss/chips";
+// @import "scss/dropdowns";
+// @import "scss/empty";
+// @import "scss/menus";
+// @import "scss/modals";
+// @import "scss/navs";
+// @import "scss/pagination";
+// @import "scss/panels";
+// @import "scss/popovers";
+// @import "scss/steps";
+// @import "scss/tabs";
+// @import "scss/tiles";
+// @import "scss/toasts";
+@import "scss/tooltips";
+
+// Utility classes
+// @import "scss/animations";
+@import "scss/utilities";

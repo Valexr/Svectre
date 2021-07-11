@@ -4,7 +4,7 @@
     };
 </script>
 
-<div class="card deps card-bordered">
+<div class="card deps">
     <div class="card-image">
         <img src={img.src} class="img-responsive" alt="osx-el-capitan.jpg" />
     </div>
@@ -22,7 +22,7 @@
     </div>
 </div>
 
-<style lang="scss">
+<style lang="scss" global>
     @import "../../scss/_variables";
     @import "../../scss/_mixins";
     // Cards

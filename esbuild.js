@@ -1,105 +1,53 @@
-const { build } = require("esbuild");
+const esbuild = require("esbuild");
 const { derver } = require("derver");
 const sveltePlugin = require("esbuild-svelte");
 const sveltePreprocess = require("svelte-preprocess");
 
 const DEV = process.argv.includes('--dev');
+const HOST = '0.0.0.0';
+const PORT = 5050;
 
-async function build_client() {
-    return await build({
-        entryPoints: ['src/main.js'],
-        outfile: 'public/build/bundle.js',
-        bundle: true,
-        minify: !DEV,
-        sourcemap: DEV && 'inline',
-        mainFields: ['svelte', 'module', 'main'],
-        external: ['../img/*'],
-        plugins: [
-            sveltePlugin({
-                compileOptions: {
-                    dev: DEV,
-                    css: false
-                },
-                preprocess: [
-                    sveltePreprocess()
-                ]
-            })
-        ]
-    });
-}
+esbuild.build({
+    entryPoints: ['src/main.js'],
+    bundle: true,
+    outfile: 'public/build/bundle.js',
+    mainFields: ['svelte', 'module', 'main'],
+    minify: !DEV,
+    incremental: DEV,
+    sourcemap: DEV,
+    external: ['../img/*'],
+    plugins: [
+        sveltePlugin({
+            compileOptions: {
+                dev: DEV,
+                css: false
+            },
+            preprocess: [
+                sveltePreprocess({
+                    scss: {
+                        prependData: `
+                            @import './src/scss/variables';
+                            @import './src/scss/mixins';
+                        `,
+                    },
+                })
+            ],
+            cache: false
 
-build_client();
+        })
+    ]
 
-if (DEV) {
-    derver({
+}).then(bundle => {
+    DEV && derver({
         dir: 'public',
-        host: '0.0.0.0',
-        port: 5050,
+        host: HOST,
+        port: PORT,
         watch: ['public', 'src'],
         onwatch: async (lr, item) => {
             if (item == 'src') {
                 lr.prevent();
-                try {
-                    await build_client();
-                } catch (err) {
-                    lr.error(err.message, 'Svelte compile error')
-                }
+                bundle.rebuild().catch(err => lr.error(err.message, 'Svelte compile error'));
             }
         }
     })
-}
-
-// const esbuild = require("esbuild");
-// const { derver } = require("derver");
-// const sveltePlugin = require("esbuild-svelte");
-// const sveltePreprocess = require("svelte-preprocess");
-
-// const DEV = process.argv.includes('--dev');
-
-// // Development server configuration. To configure production server
-// // see `start` script in `package.json` file.
-
-// const HOST = 'localhost';
-// const PORT = 5050;
-
-// esbuild.build({
-//     // esbuild configuration
-//     entryPoints: ['src/main.js'],
-//     bundle: true,
-//     outfile: 'public/build/bundle.js',
-//     mainFields: ['svelte', 'module', 'main'],
-//     minify: !DEV,
-//     incremental: DEV,
-//     sourcemap: DEV,  // Use `DEV && 'inline'` to inline sourcemaps to the bundle
-//     external: ['../img/*'],
-//     plugins: [
-//         sveltePlugin({
-
-//             compileOptions: {
-//                 // Svelte compile options
-//                 dev: DEV,
-//                 css: false  //use `css:true` to inline CSS in `bundle.js`
-//             },
-
-//             preprocess: [
-//                 // Place here any Svelte preprocessors
-//                 sveltePreprocess()
-//             ]
-
-//         })
-//     ]
-
-// }).then(bundle => {
-//     DEV && derver({
-//         dir: 'public',
-//         host: HOST,
-//         port: PORT,
-//         watch: ['public', 'src'],
-//         onwatch: async (lr, item) => {
-//             if (item == 'src') {
-//                 lr.prevent();
-//                 bundle.rebuild().catch(err => lr.error(err.message, 'Svelte compile error'));
-//             }
-//         }
-//     })
-// });
+});

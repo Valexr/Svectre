@@ -1,44 +1,47 @@
 <script>
     import { onMount } from "svelte";
     import { media } from "svelte-match-media";
-    import { Button } from "@/elements/buttons";
+    import { Button } from "@/elements";
     import { Hero } from "@/layout";
     import { Card } from "@/components";
 
     export let name,
         dark = false;
 
-    $: bodyId($media);
+    $: rootMedia($media);
 
-    $: changeScheme(!$media.dark);
+    // $: changeScheme(!$media.dark);
 
-    function bodyId(media) {
+    function rootMedia(media) {
+        const html = document.documentElement;
         const keys = Object.entries(media).filter(([k, v]) => {
             if (v === true) return k;
         });
-        document.body.id =
-            keys &&
-            `${keys[0][0]} ${keys
-                .flat()
-                .filter((k) => k.length > 3)
-                .join(" ")}`;
+        const k = keys.flat().filter((k) => k.length > 3);
+        html.setAttribute("media", keys[0][0]);
+        html.setAttribute("orientation", k[0]);
+        html.setAttribute("screen", k[2]);
+        html.setAttribute("scheme", media.dark ? "dark" : "light");
+        dark = media.dark;
     }
 
     function changeScheme(scheme) {
         const html = document.documentElement;
-        html.setAttribute("color-scheme", !scheme ? "dark" : "light");
-        dark = !scheme ? true : false;
+        html.setAttribute("scheme", !dark ? "dark" : "light");
+        dark = !dark;
     }
+
+    $: console.log(dark);
 </script>
 
-<header class="container navbar p-fixed py-2 deps deps-3 deps-background">
+<header class="container navbar p-fixed py-2 deps deps-1 deps-background">
     <section class="navbar-section">
         <a href="#_" class="navbar-brand mr-2">{name}</a>
         <a href="#_" class="btn btn-link">Docs</a>
         <a href="#_" class="btn btn-link">GitHub</a>
     </section>
     <section class="navbar-section">
-        <Button primary on:click={changeScheme(dark)}>
+        <Button primary on:click={changeScheme}>
             <i class="icon icon-{dark ? 'plus' : 'minus'}" />
         </Button>
     </section>
@@ -126,6 +129,15 @@
             </a>
         </div>
     </article>
+    <article class="hero bg-secondary">
+        <h2>Secondary</h2>
+        <p>Buttons</p>
+        <div class="column col-10 col-sm-12 col-mx-auto">
+            <a class="btn btn-solid btn-secondary-light btn-lg" href="#_">
+                Install Svectre
+            </a>
+        </div>
+    </article>
     <article class="hero bg-success">
         <h2>Success</h2>
         <p>Buttons</p>
@@ -198,6 +210,7 @@
             </Button>
             <Button lg clear solid dark tooltip="btn-clear" />
         </section>
+        <Button bgPrimary>primary</Button>
     </article>
 </main>
 <footer class="container navbar py-2 deps deps-underground">
@@ -207,8 +220,8 @@
 </footer>
 
 <style lang="scss" global>
-    // @import "theme";
-    @import "scss/spectre";
+    @import "theme";
+    // @import "scss/spectre";
     @import "scss/spectre-icons";
     // @import "theme.css";
 

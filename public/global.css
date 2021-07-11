@@ -1,7 +1,7 @@
 :root {
-    --hue: 240.9;
-    --sat: 63.5;
-    --light: 59.2;
+    --hue: 220;
+    --sat: 60;
+    --light: 50;
     --alfa: 100;
 
     --h: var(--hue);
@@ -41,7 +41,7 @@ body {
 @media (prefers-color-scheme: light) {
 }
 
-[color-scheme="light"] {
+[scheme="light"] {
     --dark-color: hsla(var(--h), 7.5%, 25%, calc(var(--a) * 1%));
     --dark-color-90: hsla(var(--h), 7.5%, 25%, calc(var(--a) * 1% - 10%));
 
@@ -49,7 +49,7 @@ body {
     --light-color-90: hsla(var(--h), 7.5%, 90%, calc(var(--a) * 1% - 10%));
 }
 
-[color-scheme="dark"] {
+[scheme="dark"] {
     --dark-color: hsla(var(--h), 7.5%, 85%, calc(var(--a) * 1%));
     --dark-color-90: hsla(var(--h), 7.5%, 85%, calc(var(--a) * 1% - 10%));
 
@@ -111,7 +111,7 @@ body {
     --dbl: var(--deps-back-light);
     --dcl: var(--deps-color-light);
 }
-:root[color-scheme="light"] .deps {
+:root[scheme="light"] .deps {
     --deps-back-light: 90;
     --deps-color-light: 25;
 }
@@ -137,7 +137,7 @@ body {
     --deps-back-light: 25;
     --deps-color-light: 95;
 }
-:root[color-scheme="light"] .deps-foreground {
+:root[scheme="light"] .deps-foreground {
     --deps-back-light: 100;
     --deps-color-light: 15;
 }
@@ -146,7 +146,7 @@ body {
     --deps-back-light: 20;
     --deps-color-light: 90;
 }
-:root[color-scheme="light"] .deps-surface {
+:root[scheme="light"] .deps-surface {
     --deps-back-light: 95;
     --deps-color-light: 20;
 }
@@ -155,7 +155,7 @@ body {
     --deps-back-light: 15;
     --deps-color-light: 85;
 }
-:root[color-scheme="light"] .deps-background {
+:root[scheme="light"] .deps-background {
     --deps-back-light: 90;
     --deps-color-light: 25;
 }
@@ -164,7 +164,7 @@ body {
     --deps-back-light: 10;
     --deps-color-light: 80;
 }
-:root[color-scheme="light"] .deps-underground {
+:root[scheme="light"] .deps-underground {
     --deps-back-light: 85;
     --deps-color-light: 30;
 }

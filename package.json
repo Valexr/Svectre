@@ -10,12 +10,13 @@
     },
     "license": "MIT",
     "devDependencies": {
-        "derver": "^0.4.16",
-        "esbuild": "^0.12.9",
-        "esbuild-svelte": "^0.5.1",
+        "derver": "^0.4.17",
+        "esbuild": "^0.12.15",
+        "esbuild-svelte": "^0.5.3",
         "hsluv": "^0.1.0",
         "postcss": "^8.3.5",
-        "sass": "^1.35.1",
+        "sass": "^1.35.2",
+        "spectre.css": "^0.5.9",
         "svelte": "^3.38.3",
         "svelte-match-media": "^1.2.1",
         "svelte-preprocess": "^4.7.3"
