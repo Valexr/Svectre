@@ -4,13 +4,12 @@
     import { Button } from "@/elements";
     import { Hero } from "@/layout";
     import { Card } from "@/components";
+    import "@/wc/Box";
 
     export let name,
         dark = false;
 
     $: rootMedia($media);
-
-    // $: changeScheme(!$media.dark);
 
     function rootMedia(media) {
         const html = document.documentElement;
@@ -30,8 +29,6 @@
         html.setAttribute("scheme", !dark ? "dark" : "light");
         dark = !dark;
     }
-
-    $: console.log(dark);
 </script>
 
 <header class="container navbar p-fixed py-2 deps deps-1 deps-background">
@@ -48,6 +45,7 @@
 </header>
 <main class="text-center">
     <Hero />
+    <box-l>box-l</box-l>
     <!-- <div class="toast toast-primary">
         <button class="btn btn-clear float-right" />
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -227,5 +225,31 @@
 
     footer {
         height: 5em;
+    }
+
+    :root {
+        --ratio: 1.5;
+        --s-5: calc(var(--s-4) / var(--ratio));
+        --s-4: calc(var(--s-3) / var(--ratio));
+        --s-3: calc(var(--s-2) / var(--ratio));
+        --s-2: calc(var(--s-1) / var(--ratio));
+        --s-1: calc(var(--s0) / var(--ratio));
+        --s0: 1rem;
+        --s1: calc(var(--s0) * var(--ratio));
+        --s2: calc(var(--s1) * var(--ratio));
+        --s3: calc(var(--s2) * var(--ratio));
+        --s4: calc(var(--s3) * var(--ratio));
+        --s5: calc(var(--s4) * var(--ratio));
+        --border-thin: var(--s-5);
+        --border-thick: var(--s-2);
+    }
+
+    box-l {
+        display: block;
+        padding: var(--s1);
+        border-width: var(--border-thin);
+        /* ↓ For high contrast mode */
+        outline: var(--border-thin) solid transparent;
+        outline-offset: calc(var(--border-thin) * -1);
     }
 </style>
