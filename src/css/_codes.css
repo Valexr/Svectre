@@ -1,0 +1,33 @@
+/* Codes */
+code {
+    border-radius: var(--border-radius);
+    line-height: 1.25;
+    padding: 0.1rem 0.2rem;
+    background: var(--code-color-light);
+    color: var(--code-color);
+    font-size: 85%;
+}
+
+.code {
+    border-radius: var(--border-radius);
+    color: var(--text-color);
+    position: relative;
+}
+.code::before {
+    color: var(--gray-color);
+    content: attr(data-lang);
+    font-size: var(--font-size-sm);
+    position: absolute;
+    right: var(--layout-spacing);
+    top: var(--unit-h);
+    z-index: 1;
+}
+.code code {
+    /* background-color: var(--background-color); */
+    color: inherit;
+    display: block;
+    line-height: 1.5;
+    overflow-x: auto;
+    padding: 1rem;
+    width: 100%;
+}

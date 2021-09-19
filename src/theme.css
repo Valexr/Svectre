@@ -1,36 +1,52 @@
-/* theme.css */
+/* Variables */
+@import "./css/variables.css";
 
-:root {
-    --hue: 220;
-    --sat: 65;
-    --light: 50;
-    --alfa: 100;
+/* Reset and dependencies */
+/* @import "./css/_normalize.css"; */
+/* @import "./css/_modern-normalize.css"; */
+@import "./css/_reset.css";
+@import "./css/_base.css";
 
-    --h: var(--hue);
-    --s: var(--sat);
-    --l: var(--light);
-    --a: var(--alfa);
+@import "./css/_depth.css";
+@import "./css/_backgrounds.css";
 
-    --primary-color: hsla(var(--h), calc(var(--s) * 1%), calc(var(--l) * 1%), calc(var(--a) * 1%));
-    --primary-darken: hsla(var(--h), calc(var(--s) * 1%), calc(var(--l) * 1% - 3%), calc(var(--a) * 1%));
-    --primary-lighten: hsla(var(--h), calc(var(--s) * 1%), calc(var(--l) * 1% + 3%), calc(var(--a) * 1%));
+/* Elements */
+@import "./css/_typography.css";
+/* @import "scss/asian"; */
+@import "./css/_tables.css";
+/* @import "scss/buttons"; */
+/* @import "scss/forms"; */
+/* @import "scss/labels"; */
+@import "./css/_codes.css";
+/* @import "scss/media"; */
 
-    --secondary-color: hsla(var(--h), calc(var(--s) * 1%), calc(var(--l) * 1%), calc(var(--a) * 1% - 90%));
-    --secondary-darken: hsla(var(--h), calc(var(--s) * 1%), calc(var(--l) * 1% - 3%), calc(var(--a) * 1% - 90%));
-    --secondary-lighten: hsla(var(--h), calc(var(--s) * 1%), calc(var(--l) * 1% + 3%), calc(var(--a) * 1% - 90%));
+/* Layouts */
+/* @import "./css/_hero.css"; */
 
-    --success-color: hsla(120, 60%, calc(var(--l) * 1%), calc(var(--a) * 1%));
-    --warning-color: hsla(40, 90%, calc(var(--l) * 1%), calc(var(--a) * 1%));
-    --error-color: hsla(15, 90%, calc(var(--l) * 1%), calc(var(--a) * 1%));
-
-    --gray-dark: hsla(var(--h), 7.5%, calc(var(--s) * 1% - 15%), calc(var(--a) * 1%));
-    --gray-color: hsla(var(--h), 7.5%, calc(var(--s) * 1%), calc(var(--a) * 1%));
-    --gray-light: hsla(var(--h), 7.5%, calc(var(--s) * 1% + 15%), calc(var(--a) * 1%));
-
-    --text-color: var(--dark-color);
-    --background-color: var(--light-color);
-
-    /* transition: background 250ms, color 250ms; */
+/* body {
+    transition: background 250ms, color 250ms;
     color: var(--text-color);
     background-color: var(--background-color);
+} */
+
+/* @media (prefers-color-scheme: dark) {
+}
+
+@media (prefers-color-scheme: light) {
+} */
+
+[scheme="light"] {
+    --dark-color: hsla(var(--h), 7.5%, 25%, calc(var(--a) * 1%));
+    --dark-color-90: hsla(var(--h), 7.5%, 25%, calc(var(--a) * 1% - 10%));
+
+    --light-color: hsla(var(--h), 7.5%, 90%, calc(var(--a) * 1%));
+    --light-color-90: hsla(var(--h), 7.5%, 90%, calc(var(--a) * 1% - 10%));
+}
+
+[scheme="dark"] {
+    --dark-color: hsla(var(--h), 7.5%, 85%, calc(var(--a) * 1%));
+    --dark-color-90: hsla(var(--h), 7.5%, 85%, calc(var(--a) * 1% - 10%));
+
+    --light-color: hsla(var(--h), 7.5%, 15%, calc(var(--a) * 1%));
+    --light-color-90: hsla(var(--h), 7.5%, 15%, calc(var(--a) * 1% - 10%));
 }

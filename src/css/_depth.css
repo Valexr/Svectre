@@ -1,0 +1,67 @@
+/* DEPTH */
+.depth {
+    background-color: hsla(var(--h), 7.5%, calc(var(--dbl) * 1%), calc(var(--a) * 1%));
+    color: hsla(var(--h), 7.5%, calc(var(--dcl) * 1%), calc(var(--a) * 1%));
+    border-color: hsla(var(--h), 7.5%, calc(var(--dcl) * 1%), calc(var(--a) * 1%));
+    --depth-back-light: 15;
+    --depth-color-light: 85;
+    --dbl: var(--depth-back-light);
+    --dcl: var(--depth-color-light);
+}
+:root[scheme="light"] .depth {
+    --depth-back-light: 90;
+    --depth-color-light: 25;
+}
+
+.depth-1 {
+    --dbl: calc(var(--depth-back-light) + 1);
+    --dcl: calc(var(--depth-color-light) + 1);
+}
+.depth-2 {
+    --dbl: calc(var(--depth-back-light) + 2);
+    --dcl: calc(var(--depth-color-light) + 2);
+}
+.depth-3 {
+    --dbl: calc(var(--depth-back-light) + 3);
+    --dcl: calc(var(--depth-color-light) + 3);
+}
+.depth-4 {
+    --dbl: calc(var(--depth-back-light) + 4);
+    --dcl: calc(var(--depth-color-light) + 4);
+}
+
+.depth-surface {
+    --depth-back-light: 25;
+    --depth-color-light: 95;
+}
+:root[scheme="light"] .depth-surface {
+    --depth-back-light: 100;
+    --depth-color-light: 15;
+}
+
+.depth-foreground {
+    --depth-back-light: 20;
+    --depth-color-light: 90;
+}
+:root[scheme="light"] .depth-foreground {
+    --depth-back-light: 95;
+    --depth-color-light: 20;
+}
+
+.depth-background {
+    --depth-back-light: 15;
+    --depth-color-light: 85;
+}
+:root[scheme="light"] .depth-background {
+    --depth-back-light: 90;
+    --depth-color-light: 25;
+}
+
+.depth-underground {
+    --depth-back-light: 10;
+    --depth-color-light: 80;
+}
+:root[scheme="light"] .depth-underground {
+    --depth-back-light: 85;
+    --depth-color-light: 30;
+}

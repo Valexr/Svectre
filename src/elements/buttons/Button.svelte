@@ -75,16 +75,6 @@
         );
     }
 
-    @function hsls($color) {
-        $color: str-replace($color, "var(");
-        $color: str-replace($color, ")");
-        $color-h: #{var(#{$color + "-h"})};
-        $color-s: #{var(#{$color + "-s"})};
-        $color-l: #{var(#{$color + "-l"})};
-        @return #{$color-l};
-        // @return hsl($color-h, $color-s, $color-l);
-    }
-
     @function saturation($color, $saturationMultiplier) {
         $color: str-replace($color, "var(");
         $color: str-replace($color, ")");
@@ -96,6 +86,26 @@
             calc(#{$color-s} * #{$saturationMultiplier}),
             $color-l
         );
+    }
+
+    @function hsls($color) {
+        $color: str-replace($color, "var(");
+        $color: str-replace($color, ")");
+        $color-h: #{var(#{$color + "-h"})};
+        $color-s: #{var(#{$color + "-s"})};
+        $color-l: #{var(#{$color + "-l"})};
+        @return #{$color-l};
+        // @return hsl($color-h, $color-s, $color-l);
+    }
+
+    @function cssvar($color) {
+        $color: str-replace($color, "var(");
+        $color: str-replace($color, ")");
+        $color-h: #{var(#{$color + "-h"})};
+        $color-s: #{var(#{$color + "-s"})};
+        $color-l: #{var(#{$color + "-l"})};
+        // @return #{$color-l};
+        @return hsl(#{$color-h}, #{$color-s}, #{$color-l});
     }
 
     // replace substring with another string
@@ -118,26 +128,31 @@
         #{$color}-h: #{$hue};
         #{$color}-s: #{$saturation};
         #{$color}-l: #{$lightness};
+        #{$color}-hsl: #{$hue}, #{$saturation}, #{$lightness};
     }
 
     :root {
         @include defineColorHSL(--color-primary, 220, 89%, 56%);
+        --color: hsl(220, 89%, 56%);
     }
 
     @mixin bg-color-variant($name: ".bg-primary", $color) {
         #{$name} {
             background: $color !important;
 
-            // @if (hsls($color) < 60) {
-            @if (lightness($color) < 60) {
-                color: $light-color;
-            }
+            // @if (lightness(#{$color}) < 60%) {
+            //     color: $light-color;
+            // }
         }
     }
-    @include bg-color-variant(".bg-primary", $primary-color);
+    @include bg-color-variant(".bg-primary", var(--color-primary));
 
     button {
-        color: var(--color-primary);
+        color: lighter(var(--color-primary), 0.8);
+    }
+    .bg-primary {
+        color: hsls(var(--color-primary)) !important;
+        background-color: lighter(var(--color-primary), 0.8) !important;
     }
     // @import "../../scss/_variables";
     // @import "../../scss/_mixins";

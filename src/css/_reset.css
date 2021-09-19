@@ -1,0 +1,107 @@
+/*******
+* CSS Reset
+*******/
+
+/* Remove all default margin/border styles of the "User-Agent-Stylesheet" */
+*:where(:not(iframe, canvas, img, svg, video):not(svg *)) {
+    margin: 0;
+    border: 0;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* FOUC hack */
+html {
+    font-size: 16px;
+    font-size: 100%;
+    visibility: visible !important;
+}
+
+/* Set core root defaults */
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.75;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[role="list"],
+ol[role="list"] {
+    padding: 0;
+    list-style: none;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+    display: block;
+    max-width: 100%;
+}
+
+/* default for tables */
+table {
+    border-collapse: collapse;
+}
+
+/* Default accessible styling for links */
+a,
+a:visited {
+    color: inherit;
+    touch-action: manipulation;
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 1px;
+}
+
+/* buttons */
+button {
+    background: transparent;
+    cursor: pointer;
+}
+
+/* Misc. */
+[hidden] {
+    display: none !important;
+}
+
+[disabled] {
+    cursor: not-allowed;
+}
+
+/* Removes outlines for mouse users */
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto !important;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Hack to allow 100vh properly on iOS Safari */
+@supports (-webkit-touch-callout: none) {
+    body {
+        height: -webkit-fill-available;
+    }
+}

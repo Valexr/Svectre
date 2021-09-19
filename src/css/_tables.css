@@ -1,0 +1,40 @@
+/* Tables */
+.table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    /* @if $rtl == true {
+        text-align: right;
+    } @else { */
+    text-align: left;
+}
+
+.table.table-striped tbody tr:nth-of-type(odd) {
+    background: var(--background-color);
+}
+
+.table tbody tr.active,
+.table.table-striped tbody tr.active {
+    background: var(--background-color);
+}
+
+.table.table-hover tbody tr:hover {
+    background: var(--background-color);
+}
+
+/* Scollable tables */
+.table.table-scroll {
+    display: block;
+    overflow-x: auto;
+    padding-bottom: 0.75rem;
+    white-space: nowrap;
+}
+
+.table td,
+.table th {
+    border-bottom: var(border-width) solid var(border-color);
+    padding: var(unit-3) var(unit-2);
+}
+.table th {
+    border-bottom-width: var(border-width-lg);
+}

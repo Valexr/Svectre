@@ -1,0 +1,50 @@
+/* BACKGROUNDS */
+.bg-dark {
+    background-color: var(--dark-color) !important;
+    color: var(--light-color);
+}
+.bg-gray-dark {
+    background-color: var(--gray-dark);
+    color: var(--light-color);
+}
+.bg-gray {
+    background-color: var(--gray-color) !important;
+    color: var(--light-color);
+}
+.bg-gray-light {
+    background-color: var(--gray-light);
+    color: var(--dark-color);
+}
+/* :root {
+    --depth-mix: {
+        background-color: var(--background-color) !important;
+        color: var(--text-color);
+    }
+} */
+.bg-light {
+    /* @apply --depth-mix; */
+    background-color: var(--light-color) !important;
+    color: var(--dark-color);
+}
+
+.bg-primary {
+    background-color: var(--primary-color);
+    color: hsla(var(--h), 7.5%, 95%, calc(var(--a) * 1%));
+}
+
+.bg-secondary {
+    background-color: var(--secondary-color) !important;
+    color: var(--primary-color);
+}
+.bg-success {
+    background-color: var(--success-color) !important;
+    color: hsla(var(--h), 7.5%, 95%, calc(var(--a) * 1%));
+}
+.bg-warning {
+    background-color: var(--warning-color) !important;
+    color: hsla(var(--h), 7.5%, 95%, calc(var(--a) * 1%));
+}
+.bg-error {
+    background-color: var(--error-color) !important;
+    color: hsla(var(--h), 7.5%, 95%, calc(var(--a) * 1%));
+}

@@ -4,7 +4,7 @@
     };
 </script>
 
-<div class="card deps">
+<div class="card depth">
     <div class="card-image">
         <img src={img.src} class="img-responsive" alt="osx-el-capitan.jpg" />
     </div>

@@ -1,0 +1,45 @@
+/* Base */
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: var(--html-font-size);
+    line-height: var(--html-line-height);
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    /* background: $body-bg; */
+    /* color: $body-font-color; */
+    font-family: var(--body-font-family);
+    font-size: var(--font-size);
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+}
+
+/* LINKS */
+a {
+    color: var(--primary-color);
+    outline: none;
+    text-decoration: none;
+}
+
+a:focus {
+    box-shadow: 0 0 0 0.1rem hsla(var(--h), calc(var(--s) * 1%), calc(var(--l) * 1%), 20%);
+}
+
+a:focus,
+a:hover,
+a:active,
+a.active {
+    color: var(--primary-darken);
+    text-decoration: underline;
+}
+
+a:visited {
+    color: var(--primary-lighten);
+}
