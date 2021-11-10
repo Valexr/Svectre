@@ -11,7 +11,7 @@
     </section>
 </header>
 <main class="text-center">
-    <Compary />
+    <!-- <Compary /> -->
     <Hero mq="lg" />
     <b-ox borderWidth="var(--s1)" on:click={clickBox}>b-ox</b-ox>
     <box-l borderWidth="var(--s1)" padding="var(--s2)" on:click={clickBox}
@@ -206,7 +206,7 @@
     import '@/theme.css';
     import Text from '@/Text.svelte';
     import Code from '@/Code.svelte';
-    import { Compary } from 'compary';
+    // import { Compary } from 'compary';
 
     export let name,
         dark = false;

@@ -1,5 +1,5 @@
 import App from './App.svelte';
-import { setup } from 'svelte-match-media'
+import { setup } from 'svelte-match-media';
 
 setup({
     xs: 'screen and (max-width: 480px)',
@@ -14,7 +14,7 @@ setup({
     light: '(prefers-color-scheme: light)',
     mouse: '(hover: hover)',
     touch: '(hover: none)',
-})
+});
 
 const app = new App({
     target: document.body,

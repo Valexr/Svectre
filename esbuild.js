@@ -1,8 +1,8 @@
 import { build } from "esbuild";
 import { derver } from "derver";
-import svelte from "esbuild-svelte";
+import sveltePlugin from "esbuild-svelte";
 import { unlink } from 'fs/promises';
-import * as path from 'path'
+import * as path from 'path';
 import config from "./svelte.config.js";
 
 
@@ -16,17 +16,17 @@ let exampleOnResolvePlugin = {
 
         // Redirect all paths starting with "images/" to "./public/images/"
         build.onResolve({ filter: /^css\// }, args => {
-            console.log(args, process.cwd())
-            args.resolveDir = `${process.cwd()}/`
-            return { path: path.join(args.resolveDir, 'src', args.path) }
-        })
+            console.log(args, process.cwd());
+            args.resolveDir = `${process.cwd()}/`;
+            return { path: path.join(args.resolveDir, 'src', args.path) };
+        });
 
         // Mark all paths starting with "http://" or "https://" as external
         // build.onResolve({ filter: /^https?:\/\// }, args => {
         //     return { path: args.path, external: true }
         // })
     },
-}
+};
 
 build({
     entryPoints: ['src/main.js'],
@@ -45,7 +45,7 @@ build({
     // },
     plugins: [
         // exampleOnResolvePlugin,
-        svelte(config)
+        sveltePlugin(config)
     ]
 
 }).then(bundle => {
@@ -62,5 +62,5 @@ build({
                 }
             }
         })
-        : (unlink('public/build/bundle.js.map'), unlink('public/build/bundle.css.map'))
+        : (unlink('public/build/bundle.js.map'), unlink('public/build/bundle.css.map'));
 });
