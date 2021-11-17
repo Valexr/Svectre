@@ -190,7 +190,7 @@
 </main>
 <footer class="container navbar py-2 depth depth-underground">
     <section class="navbar-section flex-centered">
-        <h5>© {new Date().getFullYear()} {name}</h5>
+        <h5>{new Date().getFullYear()} {name}</h5>
     </section>
 </footer>
 
@@ -257,7 +257,7 @@
         display: block;
         padding: var(--s1);
         border-width: var(--border-thin);
-        /* ↓ For high contrast mode */
+        /* For high contrast mode */
         outline: var(--border-thin) solid;
         outline-offset: calc(var(--border-thin) * -1);
         color: currentColor;
