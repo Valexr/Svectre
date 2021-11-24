@@ -4,6 +4,7 @@ import sveltePlugin from "esbuild-svelte";
 import { unlink } from 'fs/promises';
 import * as path from 'path';
 import config from "./svelte.config.js";
+// import Icons from 'unplugin-icons/vite';
 
 
 const DEV = process.argv.includes('--dev');
@@ -45,7 +46,13 @@ build({
     // },
     plugins: [
         // exampleOnResolvePlugin,
-        sveltePlugin(config)
+        sveltePlugin(config),
+        // Icons({
+        //     scale: 1.2,
+        //     defaultStyle: '',
+        //     defaultClass: '',
+        //     compiler: 'svelte',
+        // })
     ]
 
 }).then(bundle => {

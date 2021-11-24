@@ -1,5 +1,6 @@
 <header class="container navbar p-fixed py-2 depth depth-foreground">
     <section class="navbar-section">
+        <Icon icon="logos:svelte-icon" /> &nbsp;
         <a href="#_" class="navbar-brand mr-2">{name}</a>
         <a href="#_" class="btn btn-link">Docs</a>
         <a href="#_" class="btn btn-link">GitHub</a>
@@ -206,6 +207,7 @@
     import '@/theme.css';
     import Text from '@/Text.svelte';
     import Code from '@/Code.svelte';
+    import Icon from '@iconify/svelte';
     // import { Compary } from 'compary';
 
     export let name,
