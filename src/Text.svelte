@@ -38,8 +38,9 @@
         <mark>Highlighted</mark><code class="ml-2">mark</code>
     </div>
     <div class="column col-6 col-xs-12">
-        <ruby>
-            <rt>kan</rt>
+        <ruby
+            >漢
+            <rt>kan</rt>字
             <rt>ji</rt>
         </ruby><code class="ml-2">ruby</code>
     </div>
