@@ -11,20 +11,20 @@
     },
     "license": "MIT",
     "devDependencies": {
-        "@iconify/json": "^1.1.438",
-        "@iconify/svelte": "^2.1.0",
+        "@iconify/json": "^2.1.63",
+        "@iconify/svelte": "^2.2.1",
         "derver": "^0.5.3",
-        "esbuild": "^0.13.15",
-        "esbuild-svelte": "^0.6.0",
+        "esbuild": "^0.14.46",
+        "esbuild-svelte": "^0.7.1",
         "hsluv": "^0.1.0",
-        "postcss": "^8.4.4",
-        "prismjs": "^1.25.0",
-        "sass": "^1.44.0",
+        "postcss": "^8.4.14",
+        "prismjs": "^1.28.0",
+        "sass": "^1.52.3",
         "spectre.css": "^0.5.9",
-        "svelte": "^3.44.2",
+        "svelte": "^3.48.0",
         "svelte-match-media": "^1.2.1",
-        "svelte-preprocess": "^4.9.8",
-        "typescript": "^4.5.2",
-        "unplugin-icons": "^0.12.22"
+        "svelte-preprocess": "^4.10.7",
+        "typescript": "^4.7.4",
+        "unplugin-icons": "^0.14.5"
     }
 }
